@@ -1,0 +1,95 @@
+@import "colors";
+@import "media-queries";
+@import "constants";
+
+// miras yapısı kullanarak tekrardan kurtulma
+%align-center{
+    display: flex;
+    align-items: center;  
+}
+
+%hover-item{
+    transform: scale(1.1)
+} 
+
+.navbar{
+    @extend %align-center;
+    justify-content: space-between;
+    height: 80px;
+    position: relative;
+    z-index: 10;
+    padding: $paddingRegularSize;
+    box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.7);
+
+    &-logo{ // &=navbar
+        color: $dark;
+        cursor: pointer;
+        font-size: 2rem;
+        transition:  $transition;
+
+        &:hover{
+            @extend %hover-item;
+        }
+    }
+
+    
+    &_menu{
+      position: absolute;
+      right: 20px;
+      
+
+      @include tablet{
+        display: none
+      }
+
+      &_list{
+        @extend %align-center;
+
+        &_item{
+            margin-left: 15px;
+
+            &-link{
+                font-size: 1.2rem;
+                color: $lime;
+                transition: $transition;
+
+                &:hover{
+                    font-size: 1.3rem;
+                    color: $orengeRed;
+                }
+            }
+            #button{
+                padding: $paddingRegularSize;
+                border-radius: $borderRadius;
+                background-color: $lime;
+                color: $light;
+                
+                &:hover{
+                    background-color: $orengeRed;
+                }
+            }
+          }
+
+      }
+      
+    }
+
+    &_bars{
+        display: none;
+        color: $dark;
+        transition: $transition;
+        font-size: 2rem; 
+
+        @include tablet{
+            display: block;       
+        }
+
+        &:hover{
+            @extend %hover-item;
+        }
+        
+        & i{
+            cursor: pointer;
+        }
+    }
+}

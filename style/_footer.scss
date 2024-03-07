@@ -1,0 +1,21 @@
+footer{
+    background-color: $light;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    & address{
+        color: $dark;
+        font-size: 1.1rem;
+
+        & a{
+           color: $dark;
+           transition: $transition;
+           &:hover{
+            color: $orengeRed;
+            font-size: 1.2rem;
+           }
+        }
+
+    }
+}
